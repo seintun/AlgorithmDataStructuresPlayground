@@ -40,12 +40,33 @@ class singlyLinkedList {
     }
     return current;
   }
+  shift() {
+    if (!this.head) return undefined;
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return currentHead;
+  }
 }
-
+// Creating new singlyLinkedList
 let list = new singlyLinkedList();
+
+// Adding new node at the end to the empty existing singlyLinkedList
 list.push("Hello");
+list.push("World");
 list.push("Goodbye");
+list.push("!");
 console.log(list);
-list.pop();
-list.pop();
+
+// Removing node at the end to the existing singlyLinkedList
+// list.pop();
+// list.pop();
+// console.log(list);
+
+// Adding new node at the beginning to the existing singlyLinkedList
+list.shift();
 console.log(list);
