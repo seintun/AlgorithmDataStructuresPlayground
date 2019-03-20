@@ -35,6 +35,12 @@ class Stack {
   }
 }
 
+// BigO:
+// Insertion - O(1)
+// Removal - O(1)
+// Searching - O(N)
+// Access - O(N)
+
 let stack = new Stack();
 console.log(stack);
 
