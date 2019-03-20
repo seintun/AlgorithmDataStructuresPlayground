@@ -5,5 +5,13 @@ class Node {
   }
 }
 
-let newNode = new Node("Hello");
-console.log(newNode);
+class singlyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+}
+
+let list = new singlyLinkedList();
+console.log(list);
