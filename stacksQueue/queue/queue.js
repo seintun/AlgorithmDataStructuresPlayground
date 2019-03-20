@@ -34,6 +34,12 @@ class Queue {
   }
 }
 
+// BigO
+// Insertion O(1)
+// Removal O(1)
+// Searching O(N)
+// Access O(N)
+
 // Create a new queue list
 let queue = new Queue();
 console.log(queue);
