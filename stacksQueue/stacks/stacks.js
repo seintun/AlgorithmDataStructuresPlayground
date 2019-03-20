@@ -23,4 +23,22 @@ class Stack {
     }
     return this.size++;
   }
+  pop() {
+    if (!this.first) return null;
+    var temp = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
 }
+
+let stack = new Stack();
+console.log(stack);
+
+stack.push("Google.com");
+stack.push("Google Image Search");
+stack.push("Google Image Search Puppies");
+console.log(stack);
