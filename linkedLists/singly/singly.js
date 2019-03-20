@@ -51,6 +51,18 @@ class singlyLinkedList {
     }
     return currentHead;
   }
+  unshift(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 // Creating new singlyLinkedList
 let list = new singlyLinkedList();
@@ -60,7 +72,7 @@ list.push("Hello");
 list.push("World");
 list.push("Goodbye");
 list.push("!");
-console.log(list);
+console.log("Your Singly: ", list);
 
 // Removing node at the end to the existing singlyLinkedList
 // list.pop();
@@ -68,5 +80,10 @@ console.log(list);
 // console.log(list);
 
 // Adding new node at the beginning to the existing singlyLinkedList
-list.shift();
+// list.shift();
+// console.log(list);
+
+// Removing node at the beginning to the existing singlyLinkedList
+list.unshift("Unshifiting");
+list.unshift("Try");
 console.log(list);
