@@ -42,3 +42,6 @@ stack.push("Google.com");
 stack.push("Google Image Search");
 stack.push("Google Image Search Puppies");
 console.log(stack);
+
+stack.pop();
+console.log(stack);
