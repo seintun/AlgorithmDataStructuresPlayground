@@ -22,13 +22,27 @@ class Queue {
     }
     return this.size++;
   }
+  dequeue() {
+    if (!this.first) return null;
+    var temp = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
 }
 
 // Create a new queue list
 let queue = new Queue();
 console.log(queue);
 
-// Adding node/print jobs in a queue ["Print One", "Print Two"]
+// Adding node/print jobs in a queue ["Print One", "Print Two", "Print Three"]
 queue.enqueue("Print One");
 queue.enqueue("Print Two");
+queue.enqueue("Print Three");
+console.log(queue);
+
+queue.dequeue();
 console.log(queue);
