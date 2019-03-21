@@ -33,6 +33,14 @@ class MaxBinaryHeap {
       idx = parentIdx;
     }
   }
+  extractMax() {
+    const max = this.values[0];
+    const end = this.values.pop();
+    // replace the first max with the popped value
+    this.values[0] = end;
+    this.sinkDown();
+    return max;
+  }
 }
 
 let heap = new MaxBinaryHeap();
