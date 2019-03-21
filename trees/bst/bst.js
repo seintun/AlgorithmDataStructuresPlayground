@@ -90,6 +90,18 @@ class BinarySearchTree {
     console.log(data);
     return data;
   }
+  DFSPreOrder() {
+    var data = [];
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    console.log(data);
+    return data;
+  }
+
 }
 
 let tree = new BinarySearchTree();
@@ -115,12 +127,10 @@ console.log(tree);
  */
 
 // tree.find(7);
-tree.BFS(); // [10, 5, 13, 2, 7, 11, 16]
+
 // retrieving node level by level through breadth search
-/**
- *        10
- *      /    \
- *    5       13
- *   / \     /  \
- * 2    7   11   16
- */
+// tree.BFS(); // [10, 5, 13, 2, 7, 11, 16]
+
+tree.DFSPreOrder();
+tree.DFSPostOrder();
+tree.DFSInOrder();
