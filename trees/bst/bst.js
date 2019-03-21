@@ -73,14 +73,20 @@ class BinarySearchTree {
     var node = this.root,
       data = [],
       queue = [];
+    // add the first root node to the queue
     queue.push(node);
 
+    // while there still something in the queue,
     while (queue.length) {
+      // remove the first node from queue
       node = queue.shift();
+      // move the node to store inside the data[]
       data.push(node.value);
+      // if that still have either left or right node, keep adding to the queue
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
     }
+    // once the queue is empty, return the [] resulting from the search
     console.log(data);
     return data;
   }
