@@ -69,17 +69,30 @@ class BinarySearchTree {
     }
     return false;
   }
+  BFS() {
+    var node = this.root,
+      data = [],
+      queue = [];
+    queue.push(node);
+
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.value);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    console.log(data);
+    return data;
+  }
 }
 
 let tree = new BinarySearchTree();
-console.log(tree);
 // tree.root = new Node("15");
 // tree.root.right = new Node("5");
 // tree.root.left = new Node("20");
 // console.log(tree);
 
 tree.insert(10);
-console.log(tree);
 tree.insert(5);
 tree.insert(13);
 tree.insert(11);
@@ -87,4 +100,21 @@ tree.insert(2);
 tree.insert(16);
 tree.insert(7);
 console.log(tree);
-tree.find(7);
+/**
+ *        10
+ *      /    \
+ *    5       13
+ *   / \     /  \
+ * 2    7   11   16
+ */
+
+// tree.find(7);
+tree.BFS(); // [10, 5, 13, 2, 7, 11, 16]
+// retrieving node level by level through breadth search
+/**
+ *        10
+ *      /    \
+ *    5       13
+ *   / \     /  \
+ * 2    7   11   16
+ */
