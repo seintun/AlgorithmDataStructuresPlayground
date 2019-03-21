@@ -12,5 +12,9 @@ class BinarySearchTree {
   }
 }
 
-let bst = new BinarySearchTree();
-console.log(bst);
+let tree = new BinarySearchTree();
+console.log(tree);
+tree.root = new Node("15");
+tree.root.right = new Node("5");
+tree.root.left = new Node("20");
+console.log(tree);
