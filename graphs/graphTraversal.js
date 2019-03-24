@@ -64,16 +64,22 @@ class Graph {
     return result;
   }
   breadthFirst(start) {
+    // create a queue-based traversal
     const queue = [start];
     const result = [];
     const visited = {};
     let currentVertex;
+    // assign the first starting vertex in visited {}
     visited[currentVertex] = true;
 
+    // while there is still vertex in queue
     while (queue.length) {
+      // remove the first index to be checked
       currentVertex = queue.shift();
+      // add the first index inside result
       result.push(currentVertex);
 
+      // check the removed vertex neighboring vertex while adding to the queue if exist
       this.adjacencyList[currentVertex].forEach(neighbor => {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
