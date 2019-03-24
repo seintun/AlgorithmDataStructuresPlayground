@@ -5,6 +5,7 @@ class PriorityQueue {
   }
   enqueue(val, priority) {
     this.values.push({ val, priority });
+    this.sort();
   }
   dequeue() {
     return this.values.shift();
@@ -18,7 +19,7 @@ class WeightedGraph {
   constructor() {
     this.adjacencyList = {};
   }
-  addVErtex(vertex) {
+  addVertex(vertex) {
     if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
   }
   addEdge(vertex1, vertex2, weight) {
@@ -46,6 +47,40 @@ class WeightedGraph {
       // intiate each vertex prev as null to be assigned later
       previous[vertex] = null;
     }
+    // start while-loop that will keep visting each node till PQ list is empty
+    while (nodes.values.length) {
+      // value of each vertex, since its an object
+      smallest = nodes.dequeue().val;
+      // breaking point for while-loop when smallest matches with finish vertex
+      if (smallest === finish) {
+        // tracing previous vertex till false
+        while (previous[smallest]) {
+          path.push(smallest);
+          smallest = previous[smallest];
+        }
+        break;
+      }
+      if (smallest || distances[smallest] !== Infinity) {
+        for (let neighbor in this.adjacencyList[smallest]) {
+          // find neighboring node
+          let nextNode = this.adjacencyList[smallest][neighbor];
+          // calculate new distance to neighboring node
+          let candidate = distances[smallest] + nextNode.weight;
+          let nextNeighbor = nextNode.node;
+          if (candidate < distances[nextNeighbor]) {
+            // updating new smallest distance to enighbor
+            distances[nextNeighbor] = candidate;
+            // updating previous - How we got to neighbor
+            previous[nextNeighbor] = smallest;
+            // enqueue in priority queue with new priority
+            nodes.enqueue(nextNeighbor, candidate);
+          }
+        }
+      }
+    }
+    // add the starting vertex and order from start to finish
+    console.log(path.concat(smallest).reverse());
+    return path.concat(smallest).reverse();
   }
 }
 
@@ -66,4 +101,4 @@ graph.addEdge("D", "E", 3);
 graph.addEdge("D", "F", 1);
 graph.addEdge("E", "F", 1);
 
-graph.Dijkstra("A", "E");
+graph.Dijkstra("A", "E"); // [ 'A', 'C', 'D', 'F', 'E' ]
