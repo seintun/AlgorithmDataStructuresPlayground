@@ -41,6 +41,7 @@ class MaxBinaryHeap {
     this.sinkDown();
     return max;
   }
+  sinkDown() {}
 }
 
 let heap = new MaxBinaryHeap();
