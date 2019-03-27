@@ -138,15 +138,17 @@ tree.insert(11);
 tree.insert(2);
 tree.insert(16);
 tree.insert(7);
+tree.insert(1);
+tree.insert(3);
 console.log(tree);
-/**
- *        10
- *      /    \
- *    5       13
- *   / \     /  \
- * 2    7   11   16
- */
-
+// /**
+//  *        10
+//  *      /    \
+//  *    5       13
+//  *   / \     /  \
+//  *  2    7   11   16
+//  * / \
+//  *1   3
 // tree.find(7);
 
 // retrieving node level by level through breadth search
